@@ -1,6 +1,7 @@
 import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
 import { Form, json, useLoaderData, useNavigation } from "@remix-run/react";
 import invariant from "tiny-invariant";
+import { Comments } from "~/components/comments";
 import { prisma } from "~/db.server";
 import { getMovieDetail } from "~/services/movies";
 
@@ -74,6 +75,8 @@ export default function MovieDetails() {
       </Form>
 
       <hr className="my-6" />
+
+      <Comments />
 
       {reviews.map((review) => (
         <div key={review.id} className="mt-4 space-y-2 border p-4">
